@@ -53,6 +53,7 @@ def csvToPlot(filename):
     x = mapped.index
     y = mapped['count'] / 1000000
     labels = mapped['species']
+    fig = plt.figure(figsize=(12, 10))
     plt.bar(x, y)
     plt.title('Coral Frequencies on Palmyra--' + filename.replace('.png','') );
     plt.xticks(x, labels, rotation=82) 
@@ -60,7 +61,8 @@ def csvToPlot(filename):
     plt.subplots_adjust(bottom=0.15)
     
     plt.savefig('../../../../palmyraVis/VIS_'+filename, bbox_inches='tight')
-    plt.clf()
+    #plt.clf()
+    plt.close(fig)
   
     return;
 
